@@ -42,14 +42,6 @@ public class StudentServiceImpl implements StudentService {
 		//getting all Students from database
 		return (List<Student>) dao.findAll();
 		
-		/*
-		 * //Printing Student data
-		 * System.out.println("Id"+"\t"+"RollNo"+"\t"+"Full Name"+"\t"+"Percentage");
-		 * if(dao.count()>0)
-		 * std.forEach((d)->{System.out.println(d.getStudentId()+"\t"+d.getRollNo()+"\t"
-		 * +d.getFirstName()+" "+d.getLastName()+"\t"+d.getPercentage());}); else
-		 * System.out.println("\tNo Record Found.....");
-		 */
 	}
 	
 	@Override
