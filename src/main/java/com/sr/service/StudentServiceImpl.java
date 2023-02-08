@@ -40,7 +40,7 @@ public class StudentServiceImpl implements StudentService {
 	@Override
 	public List<Student> display() {
 		//getting all Students from database
-		return dao.findAll();
+		return (List<Student>) dao.findAll();
 		
 		/*
 		 * //Printing Student data
@@ -74,14 +74,14 @@ public class StudentServiceImpl implements StudentService {
 	}
 
 	@Override
-	public void delete(Integer sid) {
+	public Student delete(Integer sid) {
 		Optional<Student> opt;
 		//checking wheather studentId exists or not
 		try {
 			opt=dao.findById(sid);
 		}catch (Exception e) {
 			System.out.println("Student Id:"+sid+" doesn't Exist");
-			return;
+			return null;
 		}
 		
 		//delete Student if Id is exist
@@ -89,11 +89,13 @@ public class StudentServiceImpl implements StudentService {
 			try {
 			dao.deleteById(sid);
 			System.out.println(opt.get()+" is Deleted..");
+			return opt.get();
 			}catch (Exception e) {
 				System.out.println("Student deletion Failed..");
 				e.printStackTrace();
 			}//catch
 		}//if
+		return null;
 
 	}//delete
 

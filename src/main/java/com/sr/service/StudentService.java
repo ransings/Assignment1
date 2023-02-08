@@ -9,6 +9,6 @@ public interface StudentService {
 	Student update(Student id);
 	Student getStudent(Integer id);
 	List<Student> display();
-	void delete(Integer sid);
+	Student delete(Integer sid);
 
 }
